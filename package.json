@@ -1,0 +1,39 @@
+{
+  "name": "vscode-yaml-tools",
+  "version": "0.0.1",
+  "description": "Set of tools that powers multiple YAML VSCode extensions ",
+  "main": "src/index.ts",
+  "repository": "git@github.com:pavelvlasov/vscode-yaml-tools.git",
+  "author": "Pavel Vlasov <freakycue@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "jest",
+    "lint:types": "lerna run lint:types",
+    "lint:ts": "eslint src/**/*.ts",
+    "lint:ts:fix": "eslint src/**/*.ts --fix"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.149",
+    "js-yaml": "^3.13.1",
+    "jsonc-parser": "^2.2.1",
+    "lodash": "^4.17.15",
+    "vscode-json-languageservice": "^3.5.1",
+    "vscode-languageserver": "^6.1.1",
+    "yaml-ast-parser": "^0.0.43"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/js-yaml": "^3.12.3",
+    "@types/node": "^13.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-simple-import-sort": "^5.0.2",
+    "prettier": "^2.0.2",
+    "typescript": "^3.8.3",
+    "vscode-languageserver-types": "^3.15.1"
+  }
+}

@@ -1,0 +1,39 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2018,
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "prettier",
+        "simple-import-sort"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "simple-import-sort/sort": "error",
+        "no-console": 2,
+        "@typescript-eslint/explicit-member-accessibility": [
+            2,
+            {
+                "accessibility": "no-public"
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": 2,
+        "@typescript-eslint/indent": 0,
+        "@typescript-eslint/no-explicit-any": 1,
+        "@typescript-eslint/interface-name-prefix": 0,
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "sort-imports": "off",
+        "import/order": "off"
+    }
+}
