@@ -22,7 +22,7 @@ export class YAMLValidation {
 	}
 
 	async doValidation(textDocument: TextDocument, yamlDocument: YAMLDocument) {
-		await this.validateWithSchema(textDocument, yamlDocument)
+		return await this.validateWithSchema(textDocument, yamlDocument)
 	}
 
 	private async validateWithSchema(
