@@ -49,7 +49,7 @@ class YAMLValidation {
                     diagnostics.push({
                         severity,
                         range,
-                        message: `[Serverless IDE] ${message}`,
+                        message,
                     });
                 }
             };
