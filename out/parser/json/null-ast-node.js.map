@@ -1,0 +1,1 @@
+{"version":3,"file":"null-ast-node.js","sourceRoot":"","sources":["../../../src/parser/json/null-ast-node.ts"],"names":[],"mappings":";;AAGA,yCAAoC;AAEpC,MAAa,WAAY,SAAQ,kBAAa;IAC7C,YACC,QAAsB,EACtB,MAAsB,EACtB,IAAyB,EACzB,KAAa,EACb,GAAY;QAEZ,KAAK,CAAC,QAAQ,EAAE,MAAM,EAAE,MAAM,EAAE,IAAI,EAAE,KAAK,EAAE,GAAG,CAAC,CAAA;IAClD,CAAC;CACD;AAVD,kCAUC"}
