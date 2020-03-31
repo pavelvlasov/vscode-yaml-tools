@@ -23,17 +23,19 @@ exports.completionHelper = (document, textDocumentPosition) => {
     }
     const textLine = document.getText().substring(start, end);
     // Check if the string we are looking at is a node
-    if (textLine.indexOf(":") === -1) {
+    if (!textLine.includes(":")) {
         // We need to add the ":" to load the nodes
         let newText = "";
         // This is for the empty line case
         const trimmedText = textLine.trim();
         if (trimmedText.length === 0 ||
-            (trimmedText.length === 1 && trimmedText[0] === "-")) {
+            (trimmedText.length === 1 && trimmedText.startsWith("-"))) {
             // Add a temp node that is in the document but we don't use at all.
             newText =
                 document.getText().substring(0, start + textLine.length) +
-                    (trimmedText[0] === "-" && !textLine.endsWith(" ") ? " " : "") +
+                    (trimmedText.startsWith("-") && !textLine.endsWith(" ")
+                        ? " "
+                        : "") +
                     "holder:\r\n" +
                     document
                         .getText()
@@ -51,7 +53,7 @@ exports.completionHelper = (document, textDocumentPosition) => {
         }
         return {
             newDocument: vscode_languageserver_1.TextDocument.create(document.uri, document.languageId, document.version, newText),
-            newPosition: textDocumentPosition
+            newPosition: textDocumentPosition,
         };
     }
     else {
@@ -59,7 +61,7 @@ exports.completionHelper = (document, textDocumentPosition) => {
         position.character = position.character - 1;
         return {
             newDocument: document,
-            newPosition: position
+            newPosition: position,
         };
     }
 };

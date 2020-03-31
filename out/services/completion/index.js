@@ -8,10 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_languageserver_types_1 = require("vscode-languageserver-types");
 const completions = require("./completions");
 const helpers = require("./helpers");
+__export(require("./completion-helper"));
 class YAMLCompletion {
     constructor(schema) {
         this.schema = schema;
@@ -23,7 +27,7 @@ class YAMLCompletion {
         return __awaiter(this, void 0, void 0, function* () {
             const result = {
                 items: [],
-                isIncomplete: false
+                isIncomplete: false,
             };
             const offset = document.offsetAt(position);
             if (document.getText()[offset] === ":") {
@@ -66,7 +70,7 @@ class YAMLCompletion {
                     if (!existing) {
                         proposed[suggestion.label] = suggestion;
                         if (overwriteRange) {
-                            suggestion.textEdit = vscode_languageserver_types_1.TextEdit.replace(overwriteRange, suggestion.insertText || '');
+                            suggestion.textEdit = vscode_languageserver_types_1.TextEdit.replace(overwriteRange, suggestion.insertText || "");
                         }
                         result.items.push(suggestion);
                     }
@@ -78,6 +82,7 @@ class YAMLCompletion {
                     result.isIncomplete = true;
                 },
                 error: (message) => {
+                    // eslint-disable-next-line no-console
                     console.log(message);
                 },
                 log: (message) => {
@@ -86,7 +91,7 @@ class YAMLCompletion {
                 },
                 getNumberOfProposals: () => {
                     return result.items.length;
-                }
+                },
             };
             const collectionPromises = [];
             let addValue = true;
@@ -110,7 +115,7 @@ class YAMLCompletion {
             if (node && node.type === "object") {
                 // don't suggest properties that are already present
                 const properties = node.properties;
-                properties.forEach(p => {
+                properties.forEach((p) => {
                     if (!currentProperty || currentProperty !== p) {
                         if (p.key.value) {
                             proposed[p.key.value] = vscode_languageserver_types_1.CompletionItem.create("__");
