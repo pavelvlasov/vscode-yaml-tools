@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "test": "jest",
-    "lint:types": "lerna run lint:types",
+    "lint:types": "tsc --noEmit",
     "lint:ts": "eslint src/**/*.ts",
     "lint:ts:fix": "eslint src/**/*.ts --fix"
   },
